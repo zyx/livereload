@@ -136,14 +136,12 @@ module LiveReload
     end
 
     def read_config
+      @config = Config.merge(DEFAULT_CONFIG, USER_CONFIG, @explicit_config)
+
       project_config_file = File.join(@directory, '.livereload')
-      unless File.file? project_config_file
-        File.open(project_config_file, 'w') do |file|
-          file.write PROJECT_CONFIG_FILE_TEMPLATE
-        end
+      if File.file? project_config_file
+        @config.merge!(Config.load_from(project_config_file))
       end
-      project_config = Config.load_from project_config_file
-      @config = Config.merge(DEFAULT_CONFIG, USER_CONFIG, project_config, @explicit_config)
     end
 
     def print_config
