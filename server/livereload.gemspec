@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
    s.name = 'livereload'
-   s.version = "1.5"
+   s.version = "1.6"
 
    s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
    s.authors = ["Andrey Tarantsov"]
@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
    s.test_files = []
    s.executables = ['livereload']
    s.requirements << 'LiveReload Safari extension'
-   s.add_dependency('em-websocket', '>= 0.1.2')
+   s.add_dependency('em-websocket', '>= 0.2.1')
    s.add_dependency('em-dir-watcher', '>= 0.1')
    s.add_dependency('ruby-json', '>= 1.1.2')
 end
